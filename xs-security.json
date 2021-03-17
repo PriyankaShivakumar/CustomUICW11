@@ -1,0 +1,40 @@
+{
+  "xsappname": "sap-btp-sapui5",
+  "tenant-mode": "dedicated",
+  "description": "Security profile of called application",
+  "scopes": [
+    {
+      "name": "uaa.user",
+      "description": "UAA"
+    },
+    {
+      "name": "$XSAPPNAME.BPViewer",
+      "description": "BusinessPartner Role"
+    }
+  ],
+  "role-templates": [
+    {
+      "name": "Token_Exchange",
+      "description": "UAA",
+      "scope-references": [
+        "uaa.user"
+      ]
+    },
+     {
+      "name": "BPViewerRole",
+      "description": "BusinessPartner Role Template",
+      "scope-references": [
+        "$XSAPPNAME.BPViewer"
+      ]
+    }
+  ],
+  "role-collections": [
+        {
+        "name": "BPViewerRC",
+        "description": "BusinessPartner Role Collection",
+        "role-template-references": [
+          "$XSAPPNAME.BPViewerRole"
+            ]
+        }
+    ]
+}
